@@ -1,5 +1,5 @@
 # <font color=lightblue>Sejfy biometryczne</font>
----
+
 ## Opis projektu 
 
 Aplikacja szyfrująca wybrane foldery, nazywane **sejfami**. Odblokowanie sejfu następuje poprzez uwierzytelenienie użytkownika metodą biometryczną.  
