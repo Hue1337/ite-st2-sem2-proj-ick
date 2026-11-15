@@ -7,7 +7,7 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
 PADDING = 128
 
-def encrypt(key, iv, bytestream):
+def encrypt(bytestream, key, iv = b"1234567890123456"):
     cipher = Cipher(algorithms.AES256(key), mode=modes.CBC(iv))
     encryptor = cipher.encryptor()
 
@@ -16,7 +16,7 @@ def encrypt(key, iv, bytestream):
 
     return encryptor.update(padded) + encryptor.finalize()
 
-def decrypt(key, iv, ciphertext):
+def decrypt(ciphertext,key, iv = b"1234567890123456"):
     cipher = Cipher(algorithms.AES256(key), mode=modes.CBC(iv))
     decryptor = cipher.decryptor()
 

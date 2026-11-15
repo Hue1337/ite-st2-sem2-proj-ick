@@ -8,8 +8,7 @@ class Safe:
         self.files = []
         self.kek = kek
         self.dek = dek
-
-        self.iv = b"1234567890123456" # 16 bytes the way of holding the value will change in future
+ # 16 bytes the way of holding the value will change in future
 
     def __str__(self):
         return "\n".join(self.files)
@@ -27,7 +26,7 @@ class Safe:
             with open(file, "rb") as f:
                 bytestream = f.read()
                 print(len(self.dek.get_key()))
-            print("Encrypted:\n", operations.encrypt(self.dek.get_key(), self.iv, bytestream))
+            print("Encrypted:\n", operations.encrypt(bytestream, self.dek.get_key(), self.iv))
 
 
     def decrypt_safe(self):
@@ -36,5 +35,5 @@ class Safe:
             with open(file, "rb") as f:
                 ciphertext = f.read()
 
-                bytestream = operations.decrypt(self.dek.get_key(), self.iv, ciphertext)
+                bytestream = operations.decrypt(ciphertext, self.dek.get_key(), self.iv)
                 print("Decrypted:\n", bytestream)
