@@ -15,7 +15,9 @@ class Key:
             self.key = f.read()
             f.close()
 
+    def get_key(self):
+        return self.key
 
     @staticmethod
-    def gen_key(bytes: int = 256):
+    def gen_key(bytes = 32):
         return os.urandom(bytes)

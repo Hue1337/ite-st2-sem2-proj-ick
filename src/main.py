@@ -45,16 +45,18 @@ def run(args):
         if os.path.exists(DEV_DEK_PATH):
             key_manager.load_dek()
 
-    print(key_manager)
+    # print(key_manager)
 
     safes = []
 
     for s in config.safe_paths:
-        safes.append(Safe(s))
+        safes.append(Safe(s, key_manager.kek, key_manager.dek))
 
     safes[0].list_files(safes[0].path)
 
-    print(safes[0])
+    # print(safes[0])
+
+    safes[0].encrypt_safe()
 
 
 if __name__ == '__main__':
