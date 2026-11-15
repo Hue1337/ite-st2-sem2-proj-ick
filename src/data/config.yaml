@@ -1,0 +1,7 @@
+!Config
+safe_paths:
+  - data/safe1
+
+dev_kek_path: data/kek.key
+
+dev_passphrase: passphrase1
